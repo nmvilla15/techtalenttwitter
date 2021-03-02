@@ -51,8 +51,7 @@ public class UserService {
     }
     
     public User getLoggedInUser() {
-        String loggedInUsername = SecurityContextHolder.
-          getContext().getAuthentication().getName();
+        String loggedInUsername = SecurityContextHolder.getContext().getAuthentication().getName();
         
         return findByUsername(loggedInUsername);
     }
