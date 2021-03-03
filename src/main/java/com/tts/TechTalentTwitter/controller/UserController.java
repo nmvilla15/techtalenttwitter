@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.tts.TechTalentTwitter.model.Tweet;
 import com.tts.TechTalentTwitter.model.TweetDisplay;
 import com.tts.TechTalentTwitter.model.User;
 import com.tts.TechTalentTwitter.service.TweetService;
@@ -57,8 +56,7 @@ public class UserController {
 		
 		if (filter == null) {
 			filter = "all";
-		}
-		
+		}	
 		if (filter.equalsIgnoreCase("followers")) {
 			users = usersFollowers;
 			model.addAttribute("filter", "followers");
@@ -71,13 +69,13 @@ public class UserController {
 		}
 		model.addAttribute("users", users);
 
-		SetTweetCounts(users, model);
-		SetFollowingStatus(users, usersFollowing, model);
+		setTweetCounts(users, model);
+		setFollowingStatus(users, usersFollowing, model);
 
 		return "users";
 	}
 
-	private void SetTweetCounts(List<User> users, Model model) {
+	private void setTweetCounts(List<User> users, Model model) {
 		HashMap<String, Integer> tweetCounts = new HashMap<>();
 		for (User user : users) {
 			List<TweetDisplay> tweets = tweetService.findAllByUser(user);
@@ -86,7 +84,7 @@ public class UserController {
 		model.addAttribute("tweetCounts", tweetCounts);
 	}
 
-	private void SetFollowingStatus(List<User> users, List<User> usersFollowing, Model model) {
+	private void setFollowingStatus(List<User> users, List<User> usersFollowing, Model model) {
 		HashMap<String, Boolean> followingStatus = new HashMap<>();
 		String username = userService.getLoggedInUser().getUsername();
 		for (User user : users) {

@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
+<html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, inital-scale=1.0">
 <title>Feed</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
@@ -15,7 +13,7 @@
 </head>
 
 <body>
-<div class="container-fluid">
+<div class="container">
 	<div th:replace="fragments/navbar"></div>
 
 	<ul class="nav nav-tabs">
@@ -28,9 +26,7 @@
 
 		<h2>Tweets</h2>
 		<div th:each="tweet:${tweetList}">
-			<h5>
-				@<span th:text="${tweet.user.username}"></span> <small><span th:text="${tweet.date}"></span></small>
-			</h5>
+			<h5>@<span th:text="${tweet.user.username}"></span> <small><span th:text="${tweet.date}"></span></small></h5>
 			<p th:utext="${tweet.message}"></p>
 		</div>
 	</div>
