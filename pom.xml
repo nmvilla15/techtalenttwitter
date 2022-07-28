@@ -14,9 +14,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>TechTalentTwitter</name>
 	<description>Spring boot verison of Twitter!</description>
-	<properties>
+	<!-- <properties>
 		<java.version>11</java.version>
-	</properties>
+	</properties> -->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -68,11 +68,11 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>org.ocpsoft.prettytime</groupId>
 			<artifactId>prettytime</artifactId>
 			<version>4.0.1.Final</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.ocpsoft.prettytime</groupId>
 			<artifactId>prettytime</artifactId>
